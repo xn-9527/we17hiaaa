@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.ArticleDao">
+    <resultMap id="ArticleMap" type="com.test.domain.Article">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="author_name" property="authorName" jdbcType="VARCHAR"/>
+        <result column="article_name" property="articleName" jdbcType="VARCHAR"/>
+        <result column="article_orin_url" property="articleOrinUrl" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="VARCHAR"/>
+        <result column="main_context" property="mainContext" jdbcType="BIGINT"/>
+    </resultMap>
+</mapper>

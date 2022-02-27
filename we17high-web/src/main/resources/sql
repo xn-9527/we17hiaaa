@@ -1,0 +1,43 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for high_article
+-- ----------------------------
+DROP TABLE IF EXISTS `high_article`;
+CREATE TABLE `high_article` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `author_name` varchar(128) DEFAULT NULL COMMENT '作者名字',
+  `article_name` varchar(256) DEFAULT NULL,
+  `article_orin_url` text COMMENT '文章源url',
+  `create_time` bigint(20) DEFAULT NULL COMMENT '创建时间戳',
+  `update_time` bigint(20) DEFAULT NULL COMMENT '修改时间',
+  `main_context` text COMMENT '主内容',
+  PRIMARY KEY (`id`),
+  KEY `idx_article_name` (`article_name`) USING BTREE,
+  KEY `idx_author_name` (`author_name`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for high_article_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `high_article_tag`;
+CREATE TABLE `high_article_tag` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `high_tag_id` bigint(20) NOT NULL COMMENT '标签主键',
+  `high_article_id` bigint(20) NOT NULL COMMENT '文章主键',
+  PRIMARY KEY (`id`),
+  KEY `idx_high_tag_id` (`high_tag_id`) USING BTREE,
+  KEY `idx_article_id` (`high_article_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for high_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `high_tag`;
+CREATE TABLE `high_tag` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `tag_type` int(4) NOT NULL COMMENT '标签归属，1文章管理2大佬博客',
+  `tag_name` varchar(256) NOT NULL COMMENT '标签名称',
+  PRIMARY KEY (`id`),
+  KEY `idx_tag_type` (`tag_type`) USING HASH
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
