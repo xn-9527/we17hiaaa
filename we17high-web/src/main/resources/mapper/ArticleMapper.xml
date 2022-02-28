@@ -8,5 +8,25 @@
         <result column="article_orin_url" property="articleOrinUrl" jdbcType="VARCHAR"/>
         <result column="create_time" property="createTime" jdbcType="VARCHAR"/>
         <result column="main_context" property="mainContext" jdbcType="BIGINT"/>
+        <result column="is_delete" property="isDelete" jdbcType="TINYINT"/>
     </resultMap>
+    <sql id="Base_Column_List">
+        ID,
+        author_name,
+        article_name,
+        article_orin_url,
+        create_time,
+        main_context,
+        is_delete
+    </sql>
+
+    <select id="listByIds" resultMap="ArticleMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM high_article
+        WHERE is_delete = 0 AND id in
+        <foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>

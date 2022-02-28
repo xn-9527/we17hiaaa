@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Table(name = "high_article_tag")
 @Data
 public class ArticleTagRelation implements Serializable {
-    private long id;
-    private long highArticleId;
-    private String highTagId;
+    private static final long serialVersionUID = 5022216933728690952L;
+
+    private Long id;
+    private Long highArticleId;
+    private Long highTagId;
 }

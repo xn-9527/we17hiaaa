@@ -12,6 +12,7 @@ CREATE TABLE `high_article` (
   `create_time` bigint(20) DEFAULT NULL COMMENT '创建时间戳',
   `update_time` bigint(20) DEFAULT NULL COMMENT '修改时间',
   `main_context` text COMMENT '主内容',
+  `is_delete` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除，0未删除；1已删除',
   PRIMARY KEY (`id`),
   KEY `idx_article_name` (`article_name`) USING BTREE,
   KEY `idx_author_name` (`author_name`) USING BTREE
@@ -39,5 +40,5 @@ CREATE TABLE `high_tag` (
   `tag_type` int(4) NOT NULL COMMENT '标签归属，1文章管理2大佬博客',
   `tag_name` varchar(256) NOT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`),
-  KEY `idx_tag_type` (`tag_type`) USING HASH
+  KEY `idx_tag_type` (`tag_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Table(name = "high_tag")
 @Data
 public class Tag implements Serializable {
-    private long id;
-    private int tagType;
+    private static final long serialVersionUID = -4480782581036014249L;
+
+    private Long id;
+    private Integer tagType;
     private String tagName;
 }

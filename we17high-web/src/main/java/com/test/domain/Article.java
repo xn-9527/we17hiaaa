@@ -11,10 +11,13 @@ import java.io.Serializable;
 @Data
 @Table(name = "high_article")
 public class Article implements Serializable {
-    private long id;
+    private static final long serialVersionUID = -4305715424058743729L;
+
+    private Long id;
     private String authorName;
     private String articleName;
     private String articleOrinUrl;
-    private long createTime;
+    private Long createTime;
     private String mainContext;
+    private Integer isDelete;
 }

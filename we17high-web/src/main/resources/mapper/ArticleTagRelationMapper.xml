@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.ArticleTagRelationDao">
+    <resultMap id="ArticleTagRelationMap" type="com.test.domain.ArticleTagRelation">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="high_tag_id" property="highTagId" jdbcType="BIGINT"/>
+        <result column="high_article_id" property="highArticleId" jdbcType="BIGINT"/>
+    </resultMap>
+</mapper>

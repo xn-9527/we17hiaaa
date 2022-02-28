@@ -1,6 +1,6 @@
 # local server config
 server:
-  port: 8080
+  port: 8090
 
 spring:
   datasource:
@@ -9,8 +9,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     # 填写你数据库的url、登录名、密码和数据库名
     url: jdbc:mysql://localhost:3306/togetherhigh?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
+    username: ${MYSQL_DB_USERNAME:root}
+    password: ${MYSQL_DB_PASSWORD:root}
     druid:
       # 连接池的配置信息
       # 初始化大小，最小，最大
@@ -52,3 +52,6 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
