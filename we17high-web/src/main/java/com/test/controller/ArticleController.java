@@ -25,7 +25,8 @@ import java.util.stream.Collectors;
  */
 @RestController
 @Slf4j
-@RequestMapping(value = {"/articles"})
+@CrossOrigin
+@RequestMapping(value = {"/api/v1/articles"})
 public class ArticleController {
 
     @Resource
