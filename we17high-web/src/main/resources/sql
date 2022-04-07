@@ -1,3 +1,4 @@
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -16,7 +17,12 @@ CREATE TABLE `high_article` (
   PRIMARY KEY (`id`),
   KEY `idx_article_name` (`article_name`) USING BTREE,
   KEY `idx_author_name` (`author_name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of high_article
+-- ----------------------------
+INSERT INTO `high_article` VALUES ('1', '飞飞飞', '搜索到', 'hhfdsj', '16000000', '167908888', 'fdsfdsfd', '0');
 
 -- ----------------------------
 -- Table structure for high_article_tag
@@ -29,7 +35,13 @@ CREATE TABLE `high_article_tag` (
   PRIMARY KEY (`id`),
   KEY `idx_high_tag_id` (`high_tag_id`) USING BTREE,
   KEY `idx_article_id` (`high_article_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of high_article_tag
+-- ----------------------------
+INSERT INTO `high_article_tag` VALUES ('1', '1', '1');
+INSERT INTO `high_article_tag` VALUES ('2', '2', '1');
 
 -- ----------------------------
 -- Table structure for high_tag
@@ -41,4 +53,10 @@ CREATE TABLE `high_tag` (
   `tag_name` varchar(256) NOT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`),
   KEY `idx_tag_type` (`tag_type`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of high_tag
+-- ----------------------------
+INSERT INTO `high_tag` VALUES ('1', '1', 'test');
+INSERT INTO `high_tag` VALUES ('2', '1', 'dddd');
